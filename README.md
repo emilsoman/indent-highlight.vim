@@ -1,14 +1,14 @@
 indent-highlight.vim
 ====================
 
+Vim plugin to highlight current block based on indentation levels.
+
 ## Features
   * Works with multiple buffers/splits/windows
   * Configurable to set custom highlight color
   * Easily toggle highlights
 
 ## Usage
-
-Vim plugin to highlight current block using indentation levels.
 
 `<Leader>ih` toggles the current block (guessed by indentation levels).
 
