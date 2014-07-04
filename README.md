@@ -1,6 +1,11 @@
 indent-highlight.vim
 ====================
 
+## Features
+  * Works with multiple buffers/splits/windows
+  * Configurable to set custom highlight color
+  * Easily toggle highlights
+
 ## Usage
 
 Vim plugin to highlight current block using indentation levels.
