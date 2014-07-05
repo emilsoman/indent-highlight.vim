@@ -39,7 +39,6 @@ function! s:CurrentBlockIndentPattern()
 
   let b:PreviousBlockStartLine = startLineNumber
   let b:PreviousBlockEndLine = endLineNumber
-  echo "Start = " . startLineNumber . " End = " . endLineNumber
   return '\%>' . startLineNumber . 'l\%<' . endLineNumber . 'l.*'
 endfunction
 
