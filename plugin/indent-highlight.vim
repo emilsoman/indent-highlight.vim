@@ -6,14 +6,18 @@ if exists("g:do_not_load_indent_highlight")
 endif
 let g:do_not_load_indent_highlight = 1
 
-"let g:indent_highlight_disabled = 0
-"let b:indent_highlight_disabled = g:indent_highlight_disabled
 if !exists("g:indent_highlight_bg_color")
   let g:indent_highlight_bg_color = 233
 endif
 
 function! s:InitHighlightGroup()
   exe 'hi IndentHighlightGroup guibg=' . g:indent_highlight_bg_color . ' ctermbg=' . g:indent_highlight_bg_color
+endfunction
+
+function! s:getStartDisabled()
+  " Configuration to disable indent highlight when a buffer is opened.
+  " This would allow users to enable it on demand.
+  return get(g:, 'indent_highlight_start_disabled', 1)
 endfunction
 
 function! s:CurrentBlockIndentPattern()
@@ -82,7 +86,7 @@ endfunction
 
 function! s:DoHighlight()
   " Do nothing if indent_highlight_disabled is set globally or for window
-  if get(g:, 'indent_highlight_disabled', 0) || get(w:, 'indent_highlight_disabled', 0)
+  if get(g:, 'indent_highlight_disabled', 0) || get(w:, 'indent_highlight_disabled', s:getStartDisabled())
     return
   endif
 
@@ -118,7 +122,7 @@ function! s:IndentHighlightShow()
 endfunction
 
 function! s:IndentHighlightToggle()
-  if get(w:, 'indent_highlight_disabled', 0)
+  if get(w:, 'indent_highlight_disabled', s:getStartDisabled())
     call s:IndentHighlightShow()
   else
     call s:IndentHighlightHide()

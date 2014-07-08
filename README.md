@@ -37,8 +37,9 @@ This plugin follows the standard runtime path structure, and as such it can be i
 
 These configurations are available to set in your `~/.vimrc`
 
-    let g:indent_highlight_disabled = 1   " Disables the plugin
-    let g:indent_highlight_bg_color = 235 " Color to be used for highlighting
+    let g:indent_highlight_disabled = 1       " Disables the plugin, default 0
+    let g:indent_highlight_bg_color = 235     " Color to be used for highlighting, default 233
+    let g:indent_highlight_start_disabled = 0 " Disable indent-highlight, enable by explicitly toggling, default 1
 
 ## License
 
